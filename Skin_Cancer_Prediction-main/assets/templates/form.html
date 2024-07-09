@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/form.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/footer.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <title>Alliance Skin Care Center</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url_for('index') }}">
+                <img src="{{ url_for('static', filename='images/log.png') }}" alt="Logo" class="rounded-circle logo">
+                <span class="ml-2">Alliance Skin Care Center</span>
+            </a>
+            <!-- Hamburger Icon for Mobile -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Navigation Links -->
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('index') }}"><i class="fas fa-home"></i> Home</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="container1">
+                    <h2 class="title">Book Your Appointment</h2>
+                        <form class="form" action="{{ url_for('submit_appointment') }}" method="POST">
+                            <div class="form-group">
+                            <label for="fullName">Full Name<sup class="star">*</sup>:</label>
+                            <input type="text" class="form-control" id="fullName" name="fullName" placeholder="Enter your full name" required>
+                            </div>
+                            <div class="form-group">
+                            <label for="email">Email<sup class="star">*</sup>:</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+                            </div>
+                            <div class="form-group">
+                            <label for="phoneNumber">Phone Number<sup class="star">*</sup>:</label>
+                            <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Enter your phone number" pattern="[0-9]{10}" required>
+                            </div>
+                            <div class="form-group">
+                            <label for="preferredDateTime">Preferred Date and Time<sup class="star">*</sup>:</label>
+                            <input type="datetime-local" class="form-control" id="preferredDateTime" name="preferredDateTime" required>
+                            </div>
+                            <div class="form-group">
+                            <label for="reason">Reason for Appointment<sup class="star">*</sup>:</label>
+                            <textarea class="form-control" id="reason" name="reason" rows="3" placeholder="Enter reason for appointment"></textarea>
+                            </div>
+                            <div class="form-group">
+                            <label for="doctor">Preferred Doctor<sup class="star">*</sup>:</label>
+                            <select class="form-control" id="doctor" name="doctor">
+                                <option>Select</option>
+                                <option value="Dr. Chandana MN">Dr. Chandana MN</option>
+                                <option value="Dr. Sameer">Dr. Sameer</option>
+                                <option value="Dr. Rupa">Dr. Rupa</option>
+                            </select>
+                            </div>
+                            <button type="submit" class="submit">Submit</button>
+                        </form>              
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="info">
+                    <p class="message">Contact us for assistance: <a href="tel:+91234567890">+91 (234) 567-890</a> | <a href="mailto:allianceskincarecenter@gmail.com">allianceskincarecenter@gmail.com</a></p>
+                    <p class="message">Cancellation Policy: Please notify us at least 24 hours in advance if you need to cancel or reschedule your appointment.</p>
+                    <p class="message"><a href="#">Privacy Policy</a> | <a href="#">Terms and Conditions</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

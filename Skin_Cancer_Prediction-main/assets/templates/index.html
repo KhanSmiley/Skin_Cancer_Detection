@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alliance Skin Care Center</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/footer.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const bookAppointmentButton = document.getElementById('bookAppointmentButton');
+    
+            // Add a click event listener to redirect to the form page
+            bookAppointmentButton.addEventListener('click', function() {
+                window.location.href = "{{ url_for('form') }}"; // Redirect using url_for
+            });
+        });
+        </script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="{{ url_for('static', filename='images/log.png') }}" alt="Logo" class="rounded-circle logo">
+                <span class="ml-2">Alliance Skin Care Center</span>
+            </a>
+            <!-- Hamburger Icon for Mobile -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Navigation Links -->
+            <div class="collapse navbar-collapse justify-content-start" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('index') }}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="yu" href="{{ url_for('upload') }}">My&nbsp;Health</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('near') }}">Near&nbsp;Me</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('about_us') }}">About&nbsp;us</a>
+                    </li>
+                </ul>
+
+                <div class="ml-auto d-flex align-items-center">
+                    <button class="btn btn-outline-light mr-2" id="bookAppointmentButton">Book Your Appointment</button>
+                    <button type="button" class="btn btn-outline-light" id="searchButton">
+                        <i class="fas fa-search"></i> Search
+                    </button>
+                </div>
+            </div>
+        
+        </div>
+    </nav>
+    
+    <div class="container mt-5">
+    <!-- Hero Section -->
+        <section class="hero">
+            <div class="container text-center">
+                <h1 class="display-4">Detect Skin Cancer Early</h1>
+                <p class="lead">Empowering you with the latest technology for skin cancer detection</p>
+                <a href="{{ url_for('upload') }}" class="btn btn-primary btn-lg">Get Started</a>
+            </div>
+        </section>
+
+        <!-- Key Features Section -->
+        <section class="features">
+            <div class="container text-center">
+                <h2>Key Features</h2>
+                <div class="row">
+                    <div class="col-md-4">
+                        <i class="fas fa-clock fa-3x mb-2"></i>
+                        <h3>Early&nbsp;Detection</h3>
+                        <p>Identify potential skin cancer at an early stage for better treatment outcomes.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <i class="fas fa-file-medical-alt fa-3x mb-2"></i>
+                        <h3>Instant&nbsp;Analysis</h3>
+                        <p>Receive instant analysis results with detailed information about the detected condition.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <i class="fas fa-heartbeat fa-3x mb-2"></i>
+                        <h3>Personalized&nbsp;Recommendations</h3>
+                        <p>Get personalized recommendations for further actions based on the analysis results.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section class="how-it-works">
+            <div class="container text-center">
+                <h2>How It Works</h2>
+                <div class="row">
+                    <div class="col-md-4">
+                        <i class="fas fa-cloud-upload-alt fa-3x mb-3"></i>
+                        <h3>Upload Image</h3>
+                        <p>Upload an image of your skin lesion that you want to analyze for potential cancer.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <i class="fas fa-flask fa-3x mb-3"></i>
+                        <h3>Analysis</h3>
+                        <p>Our advanced machine learning model analyzes the uploaded image to detect potential cancerous lesions.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <i class="fas fa-search fa-3x mb-3"></i>
+                        <h3>View Results</h3>
+                        <p>Receive instant analysis results with detailed information about the detected condition.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Statistics Section -->
+        <section class="statistics">
+            <div class="container text-center">
+                <h2>Statistics</h2>
+                <p>Here are some statistics related to skin cancer:</p>
+                <div class="row">
+                    <div class="col-md-4">
+                        <h3>Prevalence</h3>
+                        <p>1 in 5 Americans will develop skin cancer by the age of 70.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>Survival Rates</h3>
+                        <p>The 5-year survival rate for melanoma is 99% if detected early.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>Importance&nbsp;of&nbsp;Early&nbsp;Detection</h3>
+                        <p>Early detection can greatly increase the chances of successful treatment.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials">
+            <div class="container text-center">
+                <h2>Testimonials</h2>
+                <div class="row">
+                    <div class="col-md-4">
+                        <blockquote class="blockquote">
+                            <p class="mb-0">As a dermatologist, I highly recommend Skin Cancer Detection for its accuracy and reliability in skin cancer analysis.</p>
+                            <footer class="blockquote-footer">Dr. Emily Smith</footer>
+                        </blockquote>
+                    </div>
+                    <div class="col-md-4">
+                        <blockquote class="blockquote">
+                            <p class="mb-0">Using Skin Cancer Detection is like having a personal dermatologist in your pocket. It's convenient and easy to use!</p>
+                            <footer class="blockquote-footer">Jane, 35 years old</footer>
+                        </blockquote>
+                    </div>
+                    <div class="col-md-4">
+                        <blockquote class="blockquote">
+                            <p class="mb-0">Skin Cancer Detection helped me identify a melanoma at an early stage. I'm grateful for their service!</p>
+                            <footer class="blockquote-footer">John, 45 years old</footer>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action Section -->
+        <section class="cta">
+            <div class="container text-center">
+                <h2>Ready to Detect Skin Cancer Early?</h2>
+                <a href="{{ url_for('upload') }}" class="btn btn-primary btn-lg">Get Started</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer text-white text-center">
+       
+        <div class="container">
+        
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; 2024 Alliance Skin Care Center. All rights reserved.</p>
+                </div>
+                 
+                <div class="col-md-6">
+                    <ul class="list-inline social-media-icons">
+                        <li class="list-inline-item"><a title="." href="#"><i class="fab fa-facebook-f"></i></a></li>
+                        <li class="list-inline-item"><a title="." href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li class="list-inline-item"><a title="." href="#"><i class="fab fa-instagram"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="{{ url_for('static', filename='JS/index.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

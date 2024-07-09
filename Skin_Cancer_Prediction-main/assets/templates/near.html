@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alliance Skin Care Center</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/near.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/footer.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url_for('index') }}">
+                <img src="{{ url_for('static', filename='images/log.png') }}" alt="Logo" class="rounded-circle logo">
+                <span class="ml-2">Alliance Skin Care Center</span>
+            </a>
+            <!-- Hamburger Icon for Mobile -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Navigation Links -->
+            <div class="collapse navbar-collapse justify-content-start" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('index') }}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('upload') }}">My Health</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('near') }}">Near Me</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('about_us') }}">About&nbsp;us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Find Nearby Dermatologists</h1>
+        <hr>
+        <div id="map"></div>
+    </div>
+
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Famous Dermatologists</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <button title="." type="button" class="mail" onclick="contactMe()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                    </button>
+                    <div class="profile-pic">
+                        <img src="{{ url_for('static', filename='images/D1.jpeg') }}" alt="img 1">
+                    </div>
+                    <div class="bottom">
+                        <div class="content">
+                            <span class="name">Dr. Nisarga</span>
+                            <span class="about-me">MBBS, MD - Dermatology , Venereology & Leprosy</span>
+                        </div>
+                       <div class="bottom-bottom">
+                        <button class="button" onclick="contactMe()">Contact Me</button>
+                       </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <button  title="." type="button" class="mail" onclick="contactMe1()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                    </button>
+                    <div class="profile-pic">
+                        <img src="{{ url_for('static', filename='images/D2.jpeg') }}" alt="img 2">
+                    </div>
+                    <div class="bottom">
+                        <div class="content">
+                            <span class="name">Dr. Chandana</span>
+                            <span class="about-me">MBBS, DDVL,Dermatosurgeon,Dermatologist,Pediatric Dermatologist</span>
+                        </div>
+                       <div class="bottom-bottom">
+                        <button class="button" onclick="contactMe1()">Contact Me</button>
+                       </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <button title="." type="button" class="mail" onclick="contactMe2()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                    </button>
+                    <div class="profile-pic">
+                        <img src="{{ url_for('static', filename='images/D3.jpg') }}" alt="img 3">
+                    </div>
+                    <div class="bottom">
+                        <div class="content">
+                            <span class="name">Dr. Sameer</span>
+                            <span class="about-me">MBBS, DDVL,Dermatologist,Dermatosurgeon,Venereologist,Cosmetologist</span>
+                        </div>
+                       <div class="bottom-bottom">
+                        <button class="button" onclick="contactMe2()">Contact Me</button>
+                       </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <button title="." type="button" class="mail" onclick="contactMe3()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                    </button>
+                    <div class="profile-pic">
+                        <img src="{{ url_for('static', filename='images/D4.jpeg') }}" alt="img 4">
+                    </div>
+                    <div class="bottom">
+                        <div class="content">
+                            <span class="name">Dr. Rupa</span>
+                            <span class="about-me">MBBS, DDVL, Dermatologist,Cosmetologist,Pediatric Dermatologist,Trichologist</span>
+                        </div>
+                       <div class="bottom-bottom">
+                        <button class="button" onclick="contactMe3()">Contact Me</button>
+                       </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <button title="." type="button" class="mail" onclick="contactMe4()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                    </button>
+                    <div class="profile-pic">
+                        <img src="{{ url_for('static', filename='images/D5.jpeg') }}" alt="img 1">
+                    </div>
+                    <div class="bottom">
+                        <div class="content">
+                            <span class="name">Dr. Jabir</span>
+                            <span class="about-me">MD - Skin & VD, MBBS, Dermatologist,Cosmetologist</span>
+                        </div>
+                       <div class="bottom-bottom">
+                        <button class="button" onclick="contactMe4()">Contact Me</button>
+                       </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <button title="." type="button" class="mail" onclick="contactMe5()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                    </button>
+                    <div class="profile-pic">
+                        <img src="{{ url_for('static', filename='images/D6.jpeg') }}" alt="img 1">
+                    </div>
+                    <div class="bottom">
+                        <div class="content">
+                            <span class="name">Dr. Rakshita</span>
+                            <span class="about-me">MBBS, DDVL, Dermatologist,Aesthetic Dermatologist,Trichologist</span>
+                        </div>
+                       <div class="bottom-bottom">
+                        <button class="button" onclick="contactMe5()">Contact Me</button>
+                       </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer text-white text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; 2024 Alliance Skin Care Center. All rights reserved.</p>
+                </div>
+                 
+                <div class="col-md-6">
+                    <ul class="list-inline social-media-icons">
+                        <li class="list-inline-item"><a title="." href="#"><i class="fab fa-facebook-f"></i></a></li>
+                        <li class="list-inline-item"><a title="." href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li class="list-inline-item"><a title="." href="#"><i class="fab fa-instagram"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="{{ url_for('static', filename='JS/near.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLf6MfWra_7138TnciUqlH7sjyIIxqWDE&libraries=places&callback=initMap" async defer></script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+footer.footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+    text-align: center;
+    padding-top: 20px;
+    background-color: #39A7FF;
+}
+.social-media-icons {
+    list-style-type: none;
+    padding: 0;
+}
+.social-media-icons li {
+    display: inline-block;
+    margin-right: 10px;
+}
+.social-media-icons li a {
+    color: #fff;
+    font-size: 24px;
+}
+
+.social-media-icons a:hover {
+    color: #007bff;
+}
+
+

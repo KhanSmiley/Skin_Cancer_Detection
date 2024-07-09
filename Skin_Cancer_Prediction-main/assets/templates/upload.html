@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alliance Skin Care Center</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/upload.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/footer.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark">
+        <div class="container">
+            <!-- Logo and Name -->
+            <a class="navbar-brand" href="{{ url_for('index') }}">
+                <img src="{{ url_for('static', filename='images/log.png') }}" alt="Logo" class="rounded-circle logo">
+                <span class="ml-2">Alliance Skin Care Center</span>
+            </a>
+            <!-- Hamburger Icon for Mobile -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Navigation Links -->
+            <div class="collapse navbar-collapse justify-content-start" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('index') }}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('upload') }}">My Health</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('near') }}">Near Me</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('about_us') }}">About&nbsp;us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container2">
+        <h1 class="text-center mb-4">Skin Cancer Detection</h1>
+        
+        <!-- Image Upload Interface -->
+        <div class="image-upload" id="image-upload">
+            <form class="file-upload-form"  action="prediction" method="post" enctype="multipart/form-data">
+                <label for="file-input" class="file-upload-label">
+                    <div class="file-upload-design">
+                        <svg viewBox="0 0 640 512" height="1em">
+                            <path d="M144 480C64.5 480 0 415.5 0 336c0-62.8 40.2-116.2 96.2-135.9c-.1-2.7-.2-5.4-.2-8.1c0-88.4 71.6-160 160-160c59.3 0 111 32.2 138.7 80.2C409.9 102 428.3 96 448 96c53 0 96 43 96 96c0 12.2-2.3 23.8-6.4 34.6C596 238.4 640 290.1 640 352c0 70.7-57.3 128-128 128H144zm79-217c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l39-39V392c0 13.3 10.7 24 24 24s24-10.7 24-24V257.9l39 39c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-80-80c-9.4-9.4-24.6-9.4-33.9 0l-80 80z"></path>
+                        </svg>
+                        <p>Drag and Drop</p>
+                        <p>or</p>
+                        <span class="browse-button">Browse file</span>
+                    </div>
+                    <input type="file" id="file-input" name="img" accept="image/*" style="display: none;">
+                </label>
+            </form>
+            <p class="mt-2">Upload an image of your skin for analysis</p>
+            <div id="processing-message" class="alert alert-info" role="alert">
+                Processing your image... Please wait.
+            </div>
+            <img id="uploaded-image" src="#" alt="Uploaded Image">
+        </div>
+        
+        <!-- Results Display -->
+        <div id="results" class="mt-4">
+            <h2 class="text-center">Analysis Results</h2>
+            <div id="result-message" class="alert" role="alert"></div>
+            <!-- Place to show additional information -->
+            <div id="result-additional-info"></div> <!-- This is where extra info will go -->
+        </div>
+        
+        <!-- Error Handling -->
+        <div id="error-message" class="alert alert-danger mt-4" role="alert">
+            An error occurred. Please try again later.
+        </div>
+
+        <!-- Educational Content -->
+        <div class="mt-4">
+            <h2 class="text-center">Learn More About Skin Cancer</h2>
+            <div class="resources mt-3">
+                <h3>Additional Resources</h3>
+                <p>Here are some useful links and resources to learn more about skin care and health:</p>
+                <ul>
+                    <li><a href="https://www.cancer.org/" target="_blank" rel="noopener">American Cancer Society</a></li>
+                    <li><a href="https://www.who.int/" target="_blank" rel="noopener">World Health Organization</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="mt-4">
+            <h2 class="text-center">Feedback and Support</h2>
+        
+            <!-- Description for Booking Appointments -->
+            <div class="appointment-info mt-3">
+                <h3>Book an Appointment</h3>
+                <p>
+                    To schedule an appointment with one of our specialists, please click the button below. You will be redirected to our appointment booking page where you can select your preferred date and time.
+                </p>
+                <a href="{{ url_for('form') }}" class="btn btn-primary">Book Now</a>
+            </div>
+
+            <div class="contact-info mt-3">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li>Email:<a href="mailto:allianceskincarecenter@gmail.com">allianceskincarecenter@gmail.com</a></li>
+                    <li>Phone:<a href="tel:+91234567890">(123) 456-7890</a></li>
+                    <li>Visit us: Chikkahadage Cross Chandapura-Anekal, Main Road, Bengaluru, Karnataka 562106</li>
+                </ul>
+            </div>
+        </div>  
+    </div>
+
+
+    <footer class="footer text-white text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; 2024 Alliance Skin Care Center. All rights reserved.</p>
+                </div>
+                 
+                <div class="col-md-6">
+                    <ul class="list-inline social-media-icons">
+                        <li class="list-inline-item"><a title="." href="#"><i class="fab fa-facebook-f"></i></a></li>
+                        <li class="list-inline-item"><a title="." href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li class="list-inline-item"><a title="." href="#"><i class="fab fa-instagram"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="{{ url_for('static', filename='JS/upload.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
